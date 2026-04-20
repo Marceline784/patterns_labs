@@ -19,20 +19,15 @@ public class TextEditor {
     }
 
     public TextMemento getMemento() {
-        return new TextMementoInternal(text);
+        return new TextMemento(text);
     }
 
     public void setMemento(TextMemento memento) {
-        var state = (TextMementoInternal) memento;
-        this.text = state.text();
+        this.text = memento.getText();
     }
 
     @Override
     public String toString() {
         return "Text: " + text;
-    }
-
-    // 🔥 внутрішній Memento як у викладача
-    private record TextMementoInternal(String text) implements TextMemento {
     }
 }

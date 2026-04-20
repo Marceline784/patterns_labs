@@ -1,26 +1,20 @@
 package behavioral.memento;
 
-import behavioral.memento.*;
-
 public class Main {
     public static void main(String[] args) {
 
         TextEditor editor = new TextEditor("Hello");
-        System.out.println(editor);
+        System.out.println("Start: " + editor);
 
-        // зберігаємо стан
         TextMemento saved = editor.getMemento();
 
-        // змінюємо текст
-        editor.write(" World!");
-        System.out.println(editor);
+        editor.write(" Anna");
+        System.out.println("After write: " + editor);
 
-        // ще зміни
-        editor.deleteLast(6);
-        System.out.println(editor);
+        editor.deleteLast(1);
+        System.out.println("After delete: " + editor);
 
-        // відновлюємо
         editor.setMemento(saved);
-        System.out.println(editor);
+        System.out.println("After restore: " + editor);
     }
 }

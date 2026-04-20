@@ -40,7 +40,7 @@ public class StreamTasks {
     // 5. Факторіал числа
     public static void task5(int n) {
         long factorial = IntStream.rangeClosed(1, n)
-                .asLongStream() // перетворюємо в long, щоб уникнути переповнення
+                .asLongStream()
                 .reduce(1, (a, b) -> a * b);
         System.out.println("Факторіал числа " + n + ": " + factorial);
     }
@@ -80,8 +80,8 @@ public class StreamTasks {
     // 10. Знайти перший непорожній рядок
     public static void task10(List<String> list) {
         String result = list.stream()
-                .filter(s -> s != null && !s.trim().isEmpty()) // Фільтруємо null та пробіли
-                .findFirst()                                   // Беремо перший елемент
+                .filter(s -> s != null && !s.trim().isEmpty())
+                .findFirst()
                 .orElse("Не знайдено жодного непорожнього рядка");
 
         System.out.println("Перший непорожній рядок: " + result);
@@ -98,10 +98,10 @@ public class StreamTasks {
     // 12. Друге за величиною число в списку
     public static void task12(List<Integer> list) {
         Integer result = list.stream()
-                .distinct()                         // Видаляємо однакові числа
-                .sorted(Comparator.reverseOrder())  // Сортуємо від більшого до меншого
-                .skip(1)                            // Пропускаємо перше (найбільше)
-                .findFirst()                        // Беремо те, що стало першим (друге за величиною)
+                .distinct()
+                .sorted(Comparator.reverseOrder())
+                .skip(1)
+                .findFirst()
                 .orElse(null);
 
         System.out.println("Друге за величиною число: " + result);
@@ -110,8 +110,8 @@ public class StreamTasks {
     // 13. Найбільше парне число
     public static void task13(List<Integer> list) {
         Integer result = list.stream()
-                .filter(n -> n % 2 == 0)            // Тільки парні
-                .max(Integer::compare)              // Знаходимо максимум
+                .filter(n -> n % 2 == 0)
+                .max(Integer::compare)
                 .orElse(null);
 
         System.out.println("Найбільше парне число: " + result);
